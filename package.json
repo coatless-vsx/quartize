@@ -1,0 +1,89 @@
+{
+  "name": "quartize",
+  "displayName": "Quartize",
+  "description": "Quartize is a Visual Studio Code extension for creating blog posts using Quarto.",
+  "version": "0.0.1",
+  "license": "SEE LICENSE IN LICENSE",
+  "publisher": "coatless",
+  "extensionDependencies": [
+      "quarto.quarto"
+  ],
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "sponsor": {
+    "url": "https://github.com/sponsors/coatless"
+  },
+  "homepage": "https://github.com/coatless-vsx/quartize",
+  "bugs": {
+    "url": "https://github.com/coatless-vsx/quartize/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coatless-vsx/quartize"
+  },
+  "keywords": [
+    "quarto",
+    "blog",
+    "post"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "quartize.newPostPalette",
+        "title": "Quartize: New Blog Post (Palette)"
+      },
+      {
+        "command": "quartize.newPostPanel",
+        "title": "Quartize: New Blog Post (Web Form)"
+      }
+    ],
+    "configuration": [
+      {
+      "type": "object",
+      "title": "Quartize",
+      "properties": {
+        "quartize.authors": {
+          "type": "array",
+          "default": [],
+          "description": "List of preset authors"
+        },
+        "quartize.categories": {
+          "type": "array",
+          "default": [],
+          "description": "List of preset categories"
+        },
+        "quartize.defaultAuthor": {
+          "type": "string",
+          "default": "",
+          "description": "Default author for new posts"
+        }
+      }
+    }
+  ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.94.0",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "eslint": "^9.13.0",
+    "typescript": "^5.6.3",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
